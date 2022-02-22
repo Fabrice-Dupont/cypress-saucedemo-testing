@@ -1,5 +1,4 @@
-const LoginPage = require('../../pageobjects/login.page');
-const InventoryPage = require('../../pageobjects/inventory.page');
+/// <reference types="cypress" />
 
 describe('UserStory: Login', () => {
     before(function () {
@@ -8,26 +7,11 @@ describe('UserStory: Login', () => {
         })
     })
     it(`Login_1: Should be able to login with valid credentials`, function(){
-        LoginPage.open();
-        LoginPage.login(this.loginData.userName, this.loginData.password);
-        InventoryPage.ensureOnPage();
+        cy.login(this.loginData.userName, this.loginData.password);
+        cy.ensureOnInventoryPage();
     })    
+    it(`Login_2: Logout after login`, ()=>{
+        cy.logout();
+    })
 });
-
-describe(`UserStory: Login`, ()=>{
-    before(function () {
-        cy.fixture('logindata.json').then(function (data){
-            this.loginData = data;
-        })
-    })
-    it(`Login_2: Should be able to login, then logout`, function(){
-    
-        LoginPage.open();
-        LoginPage.login(this.loginData.userName, this.loginData.password);
-        
-        InventoryPage.ensureOnPage();
-        
-        LoginPage.logout();
-    })
-})
 
