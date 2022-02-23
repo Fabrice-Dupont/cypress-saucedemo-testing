@@ -26,3 +26,7 @@ Cypress.Commands.add(
 Cypress.Commands.add("clickOnContinueFromCheckoutStep1", () => {
   cy.get('input[type="submit"]').click();
 });
+
+Cypress.Commands.add("clickOnCancel1FromCheckoutStep1", () => {
+  cy.get("#cancel").click();
+});

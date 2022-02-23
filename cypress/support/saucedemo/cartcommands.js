@@ -49,3 +49,7 @@ Cypress.Commands.add("ensureOnCartPage", () => {
 Cypress.Commands.add("clickOnCheckoutFromCartPage", () => {
   cy.get("#checkout").click();
 });
+
+Cypress.Commands.add("clickOnContinueShoppingFromCartPage", () => {
+  cy.get("#continue-shopping").click();
+});
