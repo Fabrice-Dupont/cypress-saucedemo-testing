@@ -20,6 +20,7 @@ Cypress.Commands.add("removeItemFromCart", (id_name) => {
 // <a class="shopping_cart_link">
 // </a>
 Cypress.Commands.add("checkNumCartItems", (num) => {
+  // This is a hack.
   if (num === 0) {
     cy.get(".shopping_cart_badge").should("not.exist");
     return;
@@ -29,4 +30,22 @@ Cypress.Commands.add("checkNumCartItems", (num) => {
     .invoke("text")
     .then(parseFloat)
     .should("equal", num);
+});
+
+Cypress.Commands.add("clickOnCartIcon", () => {
+  cy.get("#shopping_cart_container").click();
+});
+
+Cypress.Commands.add("ensureOnCartPage", () => {
+  cy.url().should("eq", Cypress.config().baseUrl + "/cart.html");
+
+  // case insensitive match
+  cy.get(".title").should(($el) => {
+    let text = $el.text().toLowerCase();
+    expect(text).to.match(/Your Cart/i);
+  });
+});
+
+Cypress.Commands.add("clickOnCheckoutFromCartPage", () => {
+  cy.get("#checkout").click();
 });

@@ -1,7 +1,9 @@
 Cypress.Commands.add("ensureOnInventoryPage", () => {
   cy.url().should("eq", Cypress.config().baseUrl + "/inventory.html");
 
-  let expectedTitle = "Products";
-  // TODO: Make this case insensitive
-  cy.get(".title").should("have.text", expectedTitle);
+  // case insensitive match
+  cy.get(".title").should(($el) => {
+    let text = $el.text().toLowerCase();
+    expect(text).to.match(/Products/i);
+  });
 });

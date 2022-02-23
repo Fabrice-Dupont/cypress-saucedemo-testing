@@ -18,6 +18,9 @@ import "./commands";
 import "./saucedemo/logincommands";
 import "./saucedemo/inventorycommands";
 import "./saucedemo/cartcommands";
+import "./saucedemo/checkoutstep1commands";
+import "./saucedemo/checkoutstep2commands";
+import "./saucedemo/checkoutcompletecommands";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
