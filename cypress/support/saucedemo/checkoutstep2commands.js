@@ -11,3 +11,7 @@ Cypress.Commands.add("ensureOnCheckoutStep2Page", () => {
 Cypress.Commands.add("clickOnFinishFromCheckoutStep2Page", () => {
   cy.get('[data-test="finish"]').click();
 });
+
+Cypress.Commands.add("clickOnCancel2FromCheckoutStep2Page", () => {
+  cy.get('[data-test="cancel"]').click();
+});
