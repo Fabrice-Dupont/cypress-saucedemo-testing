@@ -11,17 +11,28 @@ Cypress.Commands.add("ensureOnCheckoutStep1Page", () => {
 Cypress.Commands.add(
   "fillInCustomerInfo",
   (first_name, last_name, postal_code) => {
-    cy.get('input[data-test="firstName"]')
-      .type(first_name)
-      .should("have.value", first_name);
-    cy.get('input[data-test="lastName"]')
-      .type(last_name)
-      .should("have.value", last_name);
-    cy.get('input[data-test="postalCode"]')
-      .type(postal_code)
-      .should("have.value", postal_code);
+    // The if condition allows you to pass in empty string, and test for error later
+    if (first_name) {
+      cy.get('input[data-test="firstName"]')
+        .type(first_name)
+        .should("have.value", first_name);
+    }
+    if (last_name) {
+      cy.get('input[data-test="lastName"]')
+        .type(last_name)
+        .should("have.value", last_name);
+    }
+    if (postal_code) {
+      cy.get('input[data-test="postalCode"]')
+        .type(postal_code)
+        .should("have.value", postal_code);
+    }
   }
 );
+
+Cypress.Commands.add("validateCustomerSeesErrorOnCheckoutStep1", () => {
+  cy.get('[data-test="error"]').should("exist");
+});
 
 Cypress.Commands.add("clickOnContinueFromCheckoutStep1", () => {
   cy.get('input[type="submit"]').click();
