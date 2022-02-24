@@ -10,7 +10,7 @@ describe("UserStory: Checkout", () => {
     loginData = await cy.fixture("logindata.json");
   });
 
-  it(`TestCase_3: Test Continue Shopping from Cart and Cancel from CheckoutStep1`, async () => {
+  it(`TestCase_3: Test Continue Shopping from Cart and Cancel from CheckoutStep1`,() => {
     cy.login(loginData.userName, loginData.password).ensureOnInventoryPage();
 
     cy.addItemToCart("#add-to-cart-sauce-labs-backpack");
