@@ -11,3 +11,7 @@ Cypress.Commands.add("ensureOnCheckoutCompletePage", () => {
     expect(text).to.match(/THANK YOU FOR YOUR ORDER/i);
   });
 });
+
+Cypress.Commands.add("clickOnBackHomeFromCheckoutCompletePage", () => {
+  cy.get('[data-test="back-to-products"').click();
+});
