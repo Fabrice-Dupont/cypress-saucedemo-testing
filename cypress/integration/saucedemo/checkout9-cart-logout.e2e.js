@@ -10,7 +10,7 @@ describe("UserStory: Logout", () => {
     loginData = await cy.fixture("logindata.json");
   });
 
-  it("TestCase_9: (TestCase_2 modified) Logout/Login from Cart Page during checkout", async () => {
+  it("TestCase_9: (TestCase_2 modified) Logout/Login from Cart Page during checkout", () => {
     cy.login(loginData.userName, loginData.password);
     cy.ensureOnInventoryPage();
 
