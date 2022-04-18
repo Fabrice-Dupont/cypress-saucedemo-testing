@@ -1,7 +1,11 @@
 Cypress.Commands.add("login", (username, password) => {
   cy.visit("/");
 
-  cy.get('[data-test="username"]').type(username);
+  cy.get('[data-test="username"]').type(username).blur();
+  // The following line is flaky and fails sometimes cos the .type(password) is targeting
+  // a disabled element
+  // Workaround is to add .blur() to the previous element:
+  // https://github.com/cypress-io/cypress/issues/5830#issuecomment-570638375
   cy.get('[data-test="password"]').type(password);
   cy.get('[data-test="login-button"]').click();
 });
