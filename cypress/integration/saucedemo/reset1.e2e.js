@@ -10,8 +10,9 @@ describe("UserStory: Reset Cart State", () => {
     loginData = await cy.fixture("logindata.json");
   });
 
-  it("Reset_1: Reset App State from InventoryPage", async () => {
-    cy.login(loginData.userName, loginData.password).ensureOnInventoryPage();
+  it("Reset_1: Reset App State from InventoryPage", () => {
+    cy.login(loginData.userName, loginData.password);
+    cy.ensureOnInventoryPage();
 
     cy.addItemToCart("#add-to-cart-sauce-labs-backpack");
     cy.addItemToCart("#add-to-cart-sauce-labs-bike-light");

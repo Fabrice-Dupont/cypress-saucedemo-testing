@@ -9,7 +9,7 @@ describe("UserStory: Reset Cart State", () => {
 
   // State machine info:
   // X 1 A 2 4 B 6 C 17 9 D 12 E 15 18 B
-  it("Reset_5: Reset App State from CheckoutComplete Page", async () => {
+  it("Reset_5: Reset App State from CheckoutComplete Page", () => {
     cy.login(loginData.userName, loginData.password).ensureOnInventoryPage();
 
     cy.addItemToCart("#add-to-cart-sauce-labs-backpack");
