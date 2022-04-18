@@ -23,7 +23,7 @@ Cypress.Commands.add("checkIfOnErroredLogoutPage", (error_url) => {
     let expectedText =
       `Epic sadface: You can only access '${error_url}' when you are logged in.`.toLowerCase();
 
-    expect(text).to.match(expectedText);
+    expect(text).to.equal(expectedText);
   });
 });
 
