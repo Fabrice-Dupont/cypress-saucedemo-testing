@@ -11,7 +11,7 @@ describe("UserStory: Logout", () => {
     loginData = await cy.fixture("logindata.json");
   });
 
-  it("TestCase_15: (TestCase_2 modified) Login/Logout from CheckoutCompletePage during checkout", async () => {
+  it("TestCase_15: (TestCase_2 modified) Login/Logout from CheckoutCompletePage during checkout", () => {
     cy.login(loginData.userName, loginData.password);
     cy.ensureOnInventoryPage();
     cy.addItemToCart("#add-to-cart-sauce-labs-backpack");

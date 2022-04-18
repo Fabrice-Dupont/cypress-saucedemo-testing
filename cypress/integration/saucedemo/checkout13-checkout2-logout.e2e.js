@@ -10,7 +10,7 @@ describe("UserStory: Logout", () => {
     loginData = await cy.fixture("logindata.json");
   });
 
-  it("TestCase_13: (TestCase_2 modified) Login/Logout from CheckoutStep2 Page", async () => {
+  it("TestCase_13: (TestCase_2 modified) Login/Logout from CheckoutStep2 Page", () => {
     cy.login(loginData.userName, loginData.password);
 
     cy.ensureOnInventoryPage();
