@@ -11,7 +11,8 @@ describe("UserStory: Checkout", () => {
   });
 
   it("TestCase_17: (TestCase_2 modified) CartIcon from CheckoutCompletePage", async () => {
-    cy.login(loginData.userName, loginData.password).ensureOnInventoryPage();
+    cy.login(loginData.userName, loginData.password);
+    cy.ensureOnInventoryPage();
 
     cy.addItemToCart("#add-to-cart-sauce-labs-backpack");
     cy.checkNumCartItems(1);
